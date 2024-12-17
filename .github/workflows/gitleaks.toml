@@ -4,5 +4,23 @@ title = "Custom Ruleset for Gitleaks"
 [[rules]]
 id = "hardcoded-password"
 description = "Detect hardcoded passwords in Python code"
-regex = '''PASSWORD\s*=\s*['"][^'"]{8,}['"]'''
-tags = ["key", "password", "secret"]
+regex = '''(?i)(password|passwd|pwd)\s*=\s*['"][^'"]{8,}['"]'''
+tags = ["password", "secret", "key"]
+
+[[rules]]
+id = "api-key"
+description = "Detect generic API keys"
+regex = '''(?i)(api[_-]?key|apikey|key)\s*=\s*['"][A-Za-z0-9_\-]{16,}['"]'''
+tags = ["api-key", "secret"]
+
+[[rules]]
+id = "token-detection"
+description = "Detect tokens like GitHub tokens"
+regex = '''(?i)(token|ghp_[A-Za-z0-9]{36})'''
+tags = ["token", "secret"]
+
+[[rules]]
+id = "aws-access-key"
+description = "Detect AWS Access Keys"
+regex = '''AKIA[0-9A-Z]{16}'''
+tags = ["aws", "key", "secret"]
