@@ -52,7 +52,7 @@ jobs:
 
       # Secret Scanning
       - name: Scan for Secrets
-        uses: trufflesecurity/trufflehog@v3
+        uses: trufflesecurity/trufflehog@v3.86.1
         with:
           base: HEAD~1
           head: HEAD
