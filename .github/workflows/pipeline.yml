@@ -53,5 +53,5 @@ jobs:
         with:
           base: ""
           head: HEAD
-          extra_args: "--regex --rules trufflehog-rules.json --entropy=False"
+          extra_args: "--regex --entropy=False"
 
