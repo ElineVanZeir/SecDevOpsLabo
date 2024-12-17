@@ -1,1 +1,1 @@
-flask==0.12  # Kwetsbare versie van Flask
+# flask==0.12  # Kwetsbare versie van Flask
