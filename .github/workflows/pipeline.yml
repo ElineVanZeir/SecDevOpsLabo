@@ -51,5 +51,5 @@ jobs:
       - name: Scan for Secrets
         uses: trufflesecurity/trufflehog@v3.86.1
         with:
-          base: HEAD~1
+          base: ""
           head: HEAD
