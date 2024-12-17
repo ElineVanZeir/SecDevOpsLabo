@@ -6,7 +6,6 @@ import sys
 
 print("Hello, Secure World!")
 
-# Mock de API-aanroep als 'CI' wordt gedetecteerd
 RUNNING_IN_CI = os.getenv("CI") == "true"
 
 # Hardcoded secrets (detecteerbaar door scanners)
