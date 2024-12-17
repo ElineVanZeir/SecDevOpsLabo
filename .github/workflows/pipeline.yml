@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   pull_request:
-     branches:
+    branches:
       - main
   push:
     branches:
@@ -33,13 +33,13 @@ jobs:
         run: |
           echo "print('Hello, test!')" | python app.py
 
-
       # SAST Scan
       - name: Static Application Security Testing (SAST)
         uses: github/codeql-action/init@v2
         with:
           languages: python
           queries: security-and-quality
+
       # Dependency Scanning
       - name: Dependency Check with pip-audit
         run: |
@@ -47,11 +47,9 @@ jobs:
           pip install pip-audit
           pip-audit
 
-      # Secret Scanning
+      # Secret Scanning with Gitleaks
       - name: Scan for Secrets
-        uses: trufflesecurity/trufflehog@v3.86.1
+        uses: gitleaks/gitleaks-action@v@2.3.7
         with:
-          base: ""
-          head: HEAD
-          extra_args: "--regex --entropy=False"
-
+          config-path: ""
+          fail: true  # Laat de pipeline falen bij gedetecteerde secrets
