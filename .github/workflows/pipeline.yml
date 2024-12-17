@@ -46,6 +46,7 @@ jobs:
       # Dependency Scanning
       - name: Dependency Check
         uses: pyupio/safety-action@v1.0.1
+
         with:
           args: "check --full-report"
 
