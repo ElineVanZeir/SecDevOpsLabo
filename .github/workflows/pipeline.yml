@@ -38,7 +38,8 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: python
-          queries: security-and-quality
+          queries: +security-extended
+
 
       # Dependency Scanning
       - name: Dependency Check with pip-audit
