@@ -51,5 +51,5 @@ jobs:
       - name: Scan for Secrets
         uses: gitleaks/gitleaks-action@v2.3.7
         with:
-          config-path: ""
+          config-path: .github/workflows/gitleaks.toml
           fail: true  # Laat de pipeline falen bij gedetecteerde secrets

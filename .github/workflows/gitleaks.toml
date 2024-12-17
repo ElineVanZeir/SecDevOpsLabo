@@ -1,0 +1,8 @@
+# Gitleaks Custom Rules Configuratie
+title = "Custom Ruleset for Gitleaks"
+
+[[rules]]
+id = "hardcoded-password"
+description = "Detect hardcoded passwords in Python code"
+regex = '''PASSWORD\s*=\s*['"][^'"]{8,}['"]'''
+tags = ["key", "password", "secret"]
