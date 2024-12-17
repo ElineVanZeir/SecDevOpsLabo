@@ -41,9 +41,9 @@ jobs:
 
       # SAST Scan
       - name: Static Application Security Testing with Bandit
-          run: |
-            python -m pip install bandit
-            bandit -r . -ll
+        run: |
+          python -m pip install bandit
+          bandit -r . -ll
 
           
       - name: Upload Bandit Report
