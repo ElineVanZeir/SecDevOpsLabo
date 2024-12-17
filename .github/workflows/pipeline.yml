@@ -45,14 +45,6 @@ jobs:
           python -m pip install bandit
           bandit -r . -ll
 
-          
-      - name: Upload Bandit Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: bandit-report
-          path: bandit-report.txt
-
-
       # Dependency Scanning
       - name: Dependency Check with pip-audit
         run: |
