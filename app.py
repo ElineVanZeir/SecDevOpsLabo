@@ -3,7 +3,7 @@ print("Hello, Secure World!")
 import hashlib
 
 # Hardcoded wachtwoord (secret scan trigger)
-PASSWORD = "SuperSecret123"
+PASSWORD = "SuperSecret123!04"
 
 # Kwetsbare code (SAST trigger)
 user_input = input("Enter something: ")

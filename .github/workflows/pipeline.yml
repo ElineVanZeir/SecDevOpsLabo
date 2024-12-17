@@ -53,4 +53,3 @@ jobs:
         with:
           base: HEAD~1
           head: HEAD
-          extra_args: "--regex --entropy=False"
