@@ -40,6 +40,11 @@ jobs:
           languages: python
           queries: +security-extended
 
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:python"
+
 
       # Dependency Scanning
       - name: Dependency Check with pip-audit
