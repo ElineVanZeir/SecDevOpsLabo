@@ -36,6 +36,7 @@ jobs:
 
       - name: Run basic tests
         run: |
+          echo "This is a test file content." > /tmp/file.txt  # Maak het bestand aan
           echo -e "pass\nHelloUser\nfile.txt\n1+1" | python app.py
 
       # SAST Scan
