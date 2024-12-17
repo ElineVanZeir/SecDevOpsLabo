@@ -36,7 +36,7 @@ jobs:
 
       - name: Run basic tests
         run: |
-          echo -e "HelloUser\nfile.txt\n1+1" | python app.py
+          echo -e "pass\nHelloUser\nfile.txt\n1+1" | python app.py
 
       # SAST Scan
       - name: Static Application Security Testing (SAST)
