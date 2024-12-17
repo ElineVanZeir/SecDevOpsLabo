@@ -39,10 +39,7 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: python
-      - run: |
-          echo "Running CodeQL for SAST..."
-          github/codeql-action/analyze@v2
-
+          queries: security-and-quality
       # Dependency Scanning
       - name: Dependency Check
         uses: pyupio/safety-action@v1.0.1
