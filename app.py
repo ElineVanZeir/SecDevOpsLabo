@@ -11,3 +11,4 @@ exec(user_input)  # Kwetsbaar voor code injection!
 
 # Simpele hashing (voor SAST test)
 print(hashlib.md5(b"example").hexdigest())
+
