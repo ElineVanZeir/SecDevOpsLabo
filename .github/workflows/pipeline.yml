@@ -36,7 +36,7 @@ jobs:
 
       - name: Run basic tests
         run: |
-          echo "print('Hello, test!')" | python app.py
+          echo -e "HelloUser\nfile.txt\n1+1" | python app.py
 
       # SAST Scan
       - name: Static Application Security Testing (SAST)
@@ -49,6 +49,7 @@ jobs:
         uses: github/codeql-action/analyze@v2
         with:
           category: "/language:python"
+        continue-on-error: false  # Laat de pipeline falen bij problemen
 
 
       # Dependency Scanning
