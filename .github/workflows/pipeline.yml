@@ -1,7 +1,9 @@
 name: CI Pipeline
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 0 * * 0'  # Elke zondag om middernacht (Wekelijkse SAST scan)
 
