@@ -1,0 +1,57 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+     branches:
+      - main
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 0'  # Elke zondag om middernacht (Wekelijkse SAST scan)
+
+jobs:
+  build:
+    name: Build and Test Python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || echo "No dependencies"
+
+      - name: Run basic tests
+        run: |
+          echo "Running tests..."
+          python app.py
+
+      # SAST Scan
+      - name: Static Application Security Testing (SAST)
+        uses: github/codeql-action/init@v2
+        with:
+          languages: python
+      - run: |
+          echo "Running CodeQL for SAST..."
+          github/codeql-action/analyze@v2
+
+      # Dependency Scanning
+      - name: Dependency Check
+        uses: pyupio/safety-action@v1.0.1
+        with:
+          args: "check --full-report"
+
+      # Secret Scanning
+      - name: Scan for Secrets
+        uses: trufflesecurity/trufflehog@v3
+        with:
+          base: HEAD~1
+          head: HEAD
